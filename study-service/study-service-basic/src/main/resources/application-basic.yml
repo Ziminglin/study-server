@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/stu_database?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    default-encoding: utf-8
+    host: smtp.qq.com
+    username: 957182471@qq.com
+    password: hrnlvxygsblybcgg
+    port: 587
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: "isDeleted"
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+

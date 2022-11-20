@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="study-service-admin" />
+        <module name="study-security" />
+        <module name="study-service-oss" />
+        <module name="study-controller" />
+        <module name="study-mapper" />
+        <module name="study-KaptchaConfig" />
+        <module name="study-service-basic" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="study-eureka" target="1.8" />
+      <module name="study-nacos" target="1.8" />
+      <module name="study-provider" target="1.8" />
+      <module name="study-servicer" target="1.8" />
+      <module name="study-zuul" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="study-KaptchaConfig" options="-parameters" />
+      <module name="study-common" options="" />
+      <module name="study-controller" options="-parameters" />
+      <module name="study-eureka" options="-parameters" />
+      <module name="study-mapper" options="-parameters" />
+      <module name="study-nacos" options="-parameters" />
+      <module name="study-provider" options="-parameters" />
+      <module name="study-security" options="-parameters" />
+      <module name="study-service" options="" />
+      <module name="study-service-admin" options="-parameters" />
+      <module name="study-service-basic" options="-parameters" />
+      <module name="study-service-oss" options="-parameters" />
+      <module name="study-servicer" options="-parameters" />
+      <module name="study-zuul" options="-parameters" />
+      <module name="system-study" options="" />
+    </option>
+  </component>
+</project>

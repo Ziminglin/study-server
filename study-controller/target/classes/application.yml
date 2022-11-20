@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: basic,oss,admin
+
+#spring boot集成mybatis的方式打印sql
+logging:
+  level:
+    com.ming.study.mapper: DEBUG
