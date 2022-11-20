@@ -7,7 +7,10 @@ import com.ming.study.entity.User;
 import com.ming.study.mapper.SchoolInfoMapper;
 import com.ming.study.mapper.UserMapper;
 import com.ming.study.service.schoolInfo.SchoolInfoService;
+import com.ming.study.utils.LoginUser;
+import com.ming.study.utils.RedisCache;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -27,6 +30,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     private SchoolInfoMapper schoolInfoMapper;
     @Autowired
     private SchoolInfoService schoolInfoService;
+    @Autowired
+    private RedisCache redisCache;
 
     /**
      * 判断用户名是否存在
@@ -57,5 +62,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     private void addSchoolInfo(User user) {
         SchoolInfo schoolInfo = schoolInfoService.getSchoolInfo(user.getSchoolId());
         Optional.ofNullable(schoolInfo).ifPresent(user::setSchoolInfo);
+    }
+
+    /**
+     * 判断密码是否匹配
+     * @param user
+     * @return
+     */
+    public boolean checkPassword(User user) {
+        String[] split = user.getPassword().split(",");
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        LoginUser loginUser = redisCache.getCacheObject("login:" + user.getId());
+        String password = loginUser.getUser().getPassword();
+        String newPassword = bCryptPasswordEncoder.encode(split[1]);
+        user.setPassword(newPassword);
+        return bCryptPasswordEncoder.matches(split[0], password);
     }
 }

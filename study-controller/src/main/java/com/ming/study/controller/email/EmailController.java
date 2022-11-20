@@ -32,7 +32,7 @@ public class EmailController {
 
     public RespBean sent(String email, HttpServletRequest request) {
         String code_num = String.valueOf((int) ((Math.random() * 9 + 1) * 100000));
-        MailRequest mail = new MailRequest(email, "注册验证码", code_num);
+        MailRequest mail = new MailRequest(email, "系统验证码", code_num);
         HttpSession session = request.getSession();
         //将验证码存入session
         session.setAttribute("email_code", code_num);

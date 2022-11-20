@@ -17,4 +17,6 @@ public interface UserService extends IService<User> {
 
     public User getUser(String id);
 
+    public boolean checkPassword(User user);
+
 }

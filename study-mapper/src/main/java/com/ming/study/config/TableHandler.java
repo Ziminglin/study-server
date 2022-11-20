@@ -16,6 +16,7 @@ public class TableHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         this.setFieldValByName("createTime", new Date(), metaObject);
         this.setFieldValByName("updateTime", new Date(), metaObject);
+        this.setFieldValByName("isDeleted", 0, metaObject);
     }
 
     @Override

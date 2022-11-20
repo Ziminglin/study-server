@@ -2,6 +2,7 @@ package com.ming.study.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ming.study.entity.ImgType;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.ming.study.entity.ImgType;
  * @author ziming
  * @since 2022-11-20
  */
+@Mapper
 public interface ImgTypeMapper extends BaseMapper<ImgType> {
 
 }
